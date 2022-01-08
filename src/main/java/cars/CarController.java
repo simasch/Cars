@@ -35,7 +35,7 @@ public class CarController {
     }
 
     @GetMapping("/color")
-    public ResponseEntity<Car> colorFunds(@RequestParam String color) {
+    public ResponseEntity<Car> findCarByColor(@RequestParam String color) {
         return ResponseEntity.of(cars.stream().filter(car -> car.getColor().equals(color)).findFirst());
     }
 
