@@ -1,6 +1,9 @@
-package com.example.car;
+package cars;
+
+import java.util.Objects;
 
 public class Car {
+
     private int id;
     private String model;
     private String color;
@@ -53,5 +56,21 @@ public class Car {
 
     public void setYearOfMake(int yearOfMake) {
         this.yearOfMake = yearOfMake;
+    }
+
+    /*
+     * Implement equals and hashCode to guarantee uniqueness
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return id == car.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
